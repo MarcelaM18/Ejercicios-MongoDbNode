@@ -5,7 +5,7 @@ const Usuario = require('../models/usuario')//Importar modelos
 const usuariosGet = async(req, res = response)=>{
     const {nombre} = req.query//desestructuracion 
 
-    const usuarios = await Usuario.find()
+    const usuarios = await Usuario.find(nombre)
 
 
     res.json({
@@ -16,12 +16,9 @@ const usuariosGet = async(req, res = response)=>{
 
 //registrar
 const usuarioPost = async(req,res=response)=>{
-    const {nombre,password,rol,estado} = req.query
+
     const usuario = new Usuario({
-        nombre:nombre,
-        password:password,
-        rol:rol,
-        estado:estado
+       ...req.doby
     })//Instanciar el objeto
     usuario.save()
     res.json({
