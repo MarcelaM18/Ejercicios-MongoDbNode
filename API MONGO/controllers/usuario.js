@@ -15,15 +15,24 @@ const usuariosGet = async(req, res = response)=>{
 
 
 //registrar
-const usuarioPost = async(req,res=response)=>{
+async function usuarioPost(req, res = respose) {
 
-    const usuario = new Usuario({
-       ...req.doby
-    })//Instanciar el objeto
-    usuario.save()
-    res.json({
-        msg: 'La insercción se eféctuo exitosamente',
-    })
+    try {
+        const usuarios = new Usuario({
+            ...req.body
+        })
+        await usuarios.save()
+        console.log('Se agrego con exito')
+
+        res.json({
+            msg: 'La insercción se eféctuo correctamente'
+        })
+    } catch (error) {
+        console.error(error)
+        res.status(500).json({
+            msg: 'La inserción no fue exitosa ocurrió un error '
+        })
+    }
 }
 
 //modificar

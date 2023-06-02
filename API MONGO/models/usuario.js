@@ -12,7 +12,7 @@ const UsuarioSchema = new Schema ({
     },
     rol:{
         type:String,
-        required:true,
+        required:[true, 'El cmpo rol es requerido'],
         enum:['Admin','Asesor']
     },
     estado:{

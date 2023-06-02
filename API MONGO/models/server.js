@@ -7,6 +7,7 @@ class Server{
     constructor(){
         this.app = express()
         this.app.use(bodyParser.urlencoded({extended:true}))
+        this.app.use(cors())
         this.app.use(express.json())
         this.port = process.env.PORT//Capturando variable de entorno
         this.usuarioPath = '/api/usuario'//esto es lo que el usuario ve en la url ruta publica lo que se va a testear 
