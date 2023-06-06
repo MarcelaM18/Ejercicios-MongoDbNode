@@ -38,11 +38,11 @@ async function usuarioPost(req, res = respose) {
 //modificar
 
 const usuarioPut = async(req,res=response)=>{
-    const {nombre,password,rol,estado} = req.query
+    const {nombre,password,rol,estado} = req.body
     let mensaje =""
 
     try {
-        const usuario = await Usuario.findOneAndUpdate({nombre: nombre}, {rol: rol, estado: estado})
+        const usuario = await Usuario.findOneAndUpdate({nombre: nombre}, {password:password, rol: rol, estado: estado})
         mensaje= "La modificación se efectuo correctamente"
     } catch (error) {
         mensaje = "Se presentro un error en la modificacion"

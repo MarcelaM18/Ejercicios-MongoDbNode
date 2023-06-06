@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <title>Registrar Usuarios</title>
+    <title>Actualizar Usuarios</title>
 </head>
 <body >
     <div class="container" >  
@@ -42,17 +42,15 @@
                 </div>
                 <div class="row">
                     <div class="input-field col s6">
-                        <select class="browser-default" id="estado">
-                          <option value="" disabled selected>Estado</option>
-                          <option value="true">Activo</option>
-                          <option value="false">Inactivo</option>
-                        </select>
+                        <i class="material-icons prefix">hdr_weak</i>
+                        <input id="estado" type="text" class="validate">
+                        <label for="estado">Estado</label>
                       </div>
                     </div>
               </div>
               <div class="row">
                 <div class="input-field col s6">
-                    <button  class="btn waves-effect waves-light" type="button" name="action" id="btnRegistrar">Registrar
+                    <button  class="btn waves-effect waves-light" type="button" name="action" id="btnActualizar">Registrar
                         <i class="material-icons right">send</i>
                       </button>
                   </div>
@@ -62,6 +60,7 @@
           </div>
     </div>
     <div>
+
     </div>
     <script src="js/funciones.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
