@@ -1,5 +1,6 @@
 const {response} = require('express')//Importar paquetes requeridos
 const Usuario = require('../models/usuario')//Importar modelos
+const bcrypt = require('bcrypt')//encriptar
 
 
 const usuariosGet = async(req, res = response)=>{
@@ -16,11 +17,12 @@ const usuariosGet = async(req, res = response)=>{
 
 //registrar
 async function usuarioPost(req, res = respose) {
-
+const body= req.body
     try {
         const usuarios = new Usuario({
             ...req.body
         })
+        console.log(bcrypt.hashSync(req.body.password, 10))// para encriptar contraseñas
         await usuarios.save()
         console.log('Se agrego con exito')
 
